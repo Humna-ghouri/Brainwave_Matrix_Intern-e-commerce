@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | SNAPCART - Handcrafted Luxury</title>
+  <script src="https://kit.fontawesome.com/4a3b1f73a2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #9c6f44;
+      --primary-light: #d4a373;
+      --light-bg: #f9f5f0;
+      --dark: #3a3a3a;
+      --gray: #6c757d;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Reset and Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffefc;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Logo */
+    #shopName a {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      text-decoration: none;
+      color: #2a2a2a;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    #shopName a:hover {
+      color: #d08f66;
+    }
+
+    #shopName a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: width 0.3s;
+    }
+
+    #shopName a:hover::after {
+      width: 100%;
+    }
+
+    /* Navigation Menu */
+    #collection {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    #collection div a {
+      font-weight: 600;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #collection div a:hover {
+      color: #d08f66;
+    }
+
+    #collection div a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: all 0.3s;
+    }
+
+    #collection div a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Product Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      padding: 10px 0;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f9f5f0;
+      color: #d08f66;
+      padding-left: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Search Box */
+    #search {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      padding: 8px 15px;
+      border-radius: 30px;
+      width: 250px;
+      transition: all 0.3s;
+    }
+
+    #search:focus-within {
+      box-shadow: 0 0 0 2px rgba(208, 143, 102, 0.3);
+      background-color: #fff;
+    }
+
+    #search i {
+      color: #888;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* User Section */
+    #user {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #user a {
+      color: #333;
+      font-size: 22px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #user a:hover {
+      color: #d08f66;
+      transform: translateY(-2px);
+    }
+
+    /* Cart Icon */
+    .cart-link {
+      position: relative;
+    }
+
+    /* Badge Styling */
+    #badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu */
+    #hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    #hamburger:hover {
+      color: #d08f66;
+      transform: rotate(90deg);
+    }
+
+    /* ----------------------------- */
+    /* Responsive Styles */
+    /* ----------------------------- */
+    @media (max-width: 992px) {
+      #search {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #container {
+        padding: 10px 15px;
+      }
+
+      #collection {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        gap: 15px;
+      }
+
+      #collection.show {
+        display: flex;
+      }
+
+      #collection div a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 5px 0 5px 15px;
+      }
+
+      #search {
+        width: 100%;
+        margin: 15px 0;
+      }
+
+      #user {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #hamburger {
+        display: block;
+        order: 1;
+      }
+
+      #shopName {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      #user {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopName a {
+        font-size: 26px;
+      }
+      
+      #user {
+        gap: 15px;
+      }
+    }
+
+    
+    /* Hero Section */
+    .contact-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      margin: 15px auto;
+    }
+    
+    /* Card Styles */
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+    
+    /* Contact Form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(156, 111, 68, 0.2);
+      outline: none;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    /* Contact Info Card */
+    .contact-card {
+      display: flex;
+      align-items: flex-start;
+      padding: 25px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      background: rgba(156, 111, 68, 0.1);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    
+    .contact-icon i {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    
+    .contact-info p {
+      color: var(--gray);
+      margin-bottom: 5px;
+    }
+    
+    .contact-link {
+      color: var(--primary);
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    
+    /* Map */
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      height: 450px;
+    }
+    
+    /* FAQ */
+    .faq-item {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .faq-toggle {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      padding: 0;
+    }
+    
+    .faq-toggle h3 {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .faq-toggle i {
+      color: var(--primary);
+      transition: transform 0.3s;
+    }
+    
+    .faq-toggle.active i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-content {
+      display: none;
+      padding-top: 15px;
+      color: var(--gray);
+    }
+    
+    /* Social Icons */
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      margin-right: 10px;
+      transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      #search input {
+        width: 150px;
+      }
+      
+      .section {
+        padding: 60px 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      #hamburger {
+        display: block;
+      }
+      
+      #collection {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        display: none;
+        gap: 15px;
+      }
+      
+      #collection.show {
+        display: flex;
+      }
+      
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        display: none;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+      
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+      
+      #search input {
+        width: 100%;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .contact-hero {
+        height: 40vh;
+      }
+      
+      .contact-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .contact-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .section {
+        padding: 40px 20px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>  <header>
+    <section>
+      <div id="container">
+        <!-- Hamburger for Mobile -->
+        <div id="hamburger">&#9776;</div>
+
+        <!-- Logo -->
+        <div id="shopName"><a href="index.html"><b>SNAP</b>CART</a></div>
+
+        <!-- Navigation Links -->
+        <div id="collection">
+          <div><a href="index.html">HOME</a></div>
+          <div><a href="about.html">ABOUT</a></div>
+          <div class="dropdown">
+            <a  class="dropbtn">PRODUCTS <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content">
+              <a href="./jewelery.html">Jewelry</a>
+              <a href="./candel.html">Candles</a>
+              <a href="product.html?category=bags">Bags</a>
+              <a href="product.html?category=perfume">Perfume</a>
+            </div>
+          </div>
+          <div><a href="Contact.html">CONTACT</a></div>
+          <div id="search">
+            <i class="fas fa-search search"></i>
+            <input type="text" id="input" name="searchBox" placeholder="Search handmade gifts..."/>
+          </div>
+        </div>
+
+        <!-- User Icons -->
+        <div id="user">
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <div id="badge">0</div>
+          </a>
+          <a href="#"><i class="fas fa-user-circle"></i></a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const collection = document.getElementById("collection");
+
+    hamburger.addEventListener("click", () => {
+      collection.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown') && !event.target.matches('#hamburger')) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        dropdowns.forEach(dropdown => {
+          dropdown.style.display = 'none';
+        });
+        
+        if (window.innerWidth <= 768) {
+          collection.classList.remove("show");
+        }
+      }
+    });
+
+    // Update cart badge from localStorage
+    function updateCartBadge() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('badge').textContent = totalItems;
+    }
+
+    // Initialize cart badge
+    updateCartBadge();
+  </script>
+
+  
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <div class="hero-content">
+      <h1 class="font-playfair text-4xl md:text-6xl font-bold mb-6">Get In Touch</h1>
+      <p class="text-xl md:text-2xl">We'd love to hear from you! Reach out for inquiries, collaborations, or just to say hello.</p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="section">
+    <div class="flex flex-col lg:flex-row gap-12">
+      <!-- Contact Form -->
+      <div class="lg:w-1/2">
+        <h2 class="section-title">Send Us a Message</h2>
+        
+        <form id="contactForm" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required class="form-control">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address *</label>
+            <input type="email" id="email" name="email" required class="form-control">
+          </div>
+          
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-control">
+          </div>
+          
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject *</label>
+            <select id="subject" name="subject" required class="form-control">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="order">Order Inquiry</option>
+              <option value="product">Product Question</option>
+              <option value="collab">Collaboration</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Your Message *</label>
+            <textarea id="message" name="message" required class="form-control"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-full md:w-auto">
+            Send Message
+          </button>
+        </form>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="lg:w-1/2">
+        <h2 class="section-title">Contact Information</h2>
+        
+        <div class="space-y-6">
+          <!-- Contact Card 1 -->
+          <div class="contact-card card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-info">
+              <h3>Our Studio</h3>
+              <p>123 Artisan Way</p>
+              <p>Jaipur, Rajasthan 302001</p>
+              <p>India</p>
+              <a href="#" class="contact-link">Get Directions →</a>
+            </div>
+          </div>
+          
+          <!-- Contact Card 2 -->
+          <div class="contact-card card">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-info">
+              <h3>Call Us</h3>
+              <p>+91 12345 67890</p>
+              <p>Mon-Fri: 9am-6pm IST</p>
+              <p>Sat: 10am-4pm IST</p>
+              <a href="tel:+911234567890" class="contact-link">Call Now →</a>
+            </div>
+          </div>
+          
+          <!-- Contact Card 3 -->
+          <div class="contact-card card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-info">
+              <h3>Email Us</h3>
+              <p>hello@snapcart.com</p>
+              <p>orders@snapcart.com</p>
+              <p>collabs@snapcart.com</p>
+              <a href="mailto:hello@snapcart.com" class="contact-link">Email Now →</a>
+            </div>
+          </div>
+        </div>
+        
+       <!-- Replace the social media icons section with this: -->
+<div class="mt-12">
+  <h3 class="font-playfair text-xl font-semibold mb-4">Connect With Us</h3>
+  <div class="flex gap-4">
+    <a href="#" class="social-icon">
+      <i class="fab fa-facebook-f fa-fw"></i>
+    </a>
+    <a href="#" class="social-icon">
+      <i class="fab fa-instagram fa-fw"></i>
+    </a>
+    <a href="#" class="social-icon">
+      <i class="fab fa-pinterest-p fa-fw"></i>
+    </a>
+    <a href="#" class="social-icon">
+      <i class="fab fa-whatsapp fa-fw"></i>
+    </a>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="section">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.356312331297!2d75.82621431504498!3d26.91278308312548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6b0a0aaf4a1%3A0x9c41b1b302c0e6a!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1623833287599!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section bg-gray-100">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    
+    <div class="space-y-4">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <button class="faq-toggle">
+          <h3>How long does shipping take?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-content">
+          <p>Domestic orders typically arrive within 3-5 business days. International shipping times vary by destination but generally take 7-14 business days. All orders are processed within 1-2 business days.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <button class="faq-toggle">
+          <h3>What is your return policy?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-content">
+          <p>We accept returns within 14 days of delivery for store credit or exchange. Items must be unused and in original condition. Custom or personalized items are final sale. Please contact us to initiate a return.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <button class="faq-toggle">
+          <h3>Do you offer custom orders?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-content">
+          <p>Yes! Many of our artisans accept custom orders. Please contact us with your request and we'll connect you with the appropriate artisan to discuss your vision, timeline, and pricing.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <button class="faq-toggle">
+          <h3>How are your products made?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-content">
+          <p>All our products are handmade by skilled artisans using traditional techniques. We prioritize sustainable materials and ethical production methods. Each product page includes details about the artisan and their process.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- View More Button -->
+    <div class="text-center mt-12">
+      <a href="faq.html" class="btn btn-primary">
+        View All FAQs
+      </a>
+    </div>
+  </section>
+   <!-- FOOTER -->
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+  
+</body>
+</html>

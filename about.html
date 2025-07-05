@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | SNAPCART - Handcrafted Luxury</title>
+  <script src="https://kit.fontawesome.com/4a3b1f73a2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #9c6f44;
+      --primary-light: #d4a373;
+      --light-bg: #f9f5f0;
+      --dark: #3a3a3a;
+      --gray: #6c757d;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Reset and Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffefc;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Logo */
+    #shopName a {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      text-decoration: none;
+      color: #2a2a2a;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    #shopName a:hover {
+      color: #d08f66;
+    }
+
+    #shopName a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: width 0.3s;
+    }
+
+    #shopName a:hover::after {
+      width: 100%;
+    }
+
+    /* Navigation Menu */
+    #collection {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    #collection div a {
+      font-weight: 600;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #collection div a:hover {
+      color: #d08f66;
+    }
+
+    #collection div a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: all 0.3s;
+    }
+
+    #collection div a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Product Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      padding: 10px 0;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f9f5f0;
+      color: #d08f66;
+      padding-left: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Search Box */
+    #search {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      padding: 8px 15px;
+      border-radius: 30px;
+      width: 250px;
+      transition: all 0.3s;
+    }
+
+    #search:focus-within {
+      box-shadow: 0 0 0 2px rgba(208, 143, 102, 0.3);
+      background-color: #fff;
+    }
+
+    #search i {
+      color: #888;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* User Section */
+    #user {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #user a {
+      color: #333;
+      font-size: 22px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #user a:hover {
+      color: #d08f66;
+      transform: translateY(-2px);
+    }
+
+    /* Cart Icon */
+    .cart-link {
+      position: relative;
+    }
+
+    /* Badge Styling */
+    #badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu */
+    #hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    #hamburger:hover {
+      color: #d08f66;
+      transform: rotate(90deg);
+    }
+
+    /* ----------------------------- */
+    /* Responsive Styles */
+    /* ----------------------------- */
+    @media (max-width: 992px) {
+      #search {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #container {
+        padding: 10px 15px;
+      }
+
+      #collection {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        gap: 15px;
+      }
+
+      #collection.show {
+        display: flex;
+      }
+
+      #collection div a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 5px 0 5px 15px;
+      }
+
+      #search {
+        width: 100%;
+        margin: 15px 0;
+      }
+
+      #user {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #hamburger {
+        display: block;
+        order: 1;
+      }
+
+      #shopName {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      #user {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopName a {
+        font-size: 26px;
+      }
+      
+      #user {
+        gap: 15px;
+      }
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Reset and Base */
+ 
+
+ 
+    /* ----------------------------- */
+    /* Responsive Styles */
+    /* ----------------------------- */
+    @media (max-width: 992px) {
+      #search {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #container {
+        padding: 10px 15px;
+      }
+
+      #collection {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        gap: 15px;
+      }
+
+      #collection.show {
+        display: flex;
+      }
+
+      #collection div a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 5px 0 5px 15px;
+      }
+
+      #search {
+        width: 100%;
+        margin: 15px 0;
+      }
+
+      #user {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #hamburger {
+        display: block;
+        order: 1;
+      }
+
+      #shopName {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      #user {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopName a {
+        font-size: 26px;
+      }
+      
+      #user {
+        gap: 15px;
+      }
+    }
+
+    /* Hero Section */
+    .about-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      margin: 15px auto;
+    }
+    
+    /* Card Styles */
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+    
+    .category-card img {
+      transition: transform 0.5s ease;
+    }
+    
+    .category-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Stats */
+    .stat-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .rating {
+      color: gold;
+      margin-bottom: 15px;
+    }
+    
+    /* Artisan Cards */
+    .artisan-card {
+      text-align: center;
+    }
+    
+    .artisan-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+    
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    #footer{
+        background-color: var(--primary);
+        
+    }
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      #search input {
+        width: 150px;
+      }
+      
+      .section {
+        padding: 60px 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      #hamburger {
+        display: block;
+      }
+      
+      #collection {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        display: none;
+        gap: 15px;
+      }
+      
+      #collection.show {
+        display: flex;
+      }
+      
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        display: none;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+      
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+      
+      #search input {
+        width: 100%;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .about-hero {
+        height: 50vh;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .section {
+        padding: 40px 20px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .about-hero {
+        height: 40vh;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <section>
+      <div id="container">
+        <!-- Hamburger for Mobile -->
+        <div id="hamburger">&#9776;</div>
+
+        <!-- Logo -->
+        <div id="shopName"><a href="index.html"><b>SNAP</b>CART</a></div>
+
+        <!-- Navigation Links -->
+        <div id="collection">
+          <div><a href="index.html">HOME</a></div>
+          <div><a href="about.html">ABOUT</a></div>
+          <div class="dropdown">
+            <a  class="dropbtn">PRODUCTS <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content">
+              <a href="./jewelery.html">Jewellery</a>
+              <a href="./candel.html">Candles</a>
+              <a href="product.html?category=bags">Bags</a>
+              <a href="product.html?category=perfume">Perfume</a>
+            </div>
+          </div>
+          <div><a href="Contact.html">CONTACT</a></div>
+          <div id="search">
+            <i class="fas fa-search search"></i>
+            <input type="text" id="input" name="searchBox" placeholder="Search handmade gifts..."/>
+          </div>
+        </div>
+
+        <!-- User Icons -->
+        <div id="user">
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <div id="badge">0</div>
+          </a>
+          <a href="#"><i class="fas fa-user-circle"></i></a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const collection = document.getElementById("collection");
+
+    hamburger.addEventListener("click", () => {
+      collection.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown') && !event.target.matches('#hamburger')) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        dropdowns.forEach(dropdown => {
+          dropdown.style.display = 'none';
+        });
+        
+        if (window.innerWidth <= 768) {
+          collection.classList.remove("show");
+        }
+      }
+    });
+
+    // Update cart badge from localStorage
+    function updateCartBadge() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('badge').textContent = totalItems;
+    }
+
+    // Initialize cart badge
+    updateCartBadge();
+  </script>
+
+
+  <!-- About Hero Section -->
+  <section class="about-hero">
+    <div class="hero-content">
+      <h1 class="font-playfair text-4xl md:text-6xl font-bold mb-6">Our Story</h1>
+      <p class="text-xl md:text-2xl">Crafting timeless pieces that celebrate artistry and tradition since 2015</p>
+    </div>
+  </section>
+
+  <!-- Our Journey -->
+  <section class="section">
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <img src="https://i.pinimg.com/736x/fd/96/24/fd9624ae8ebf666a6661ff666fa06c45.jpg" 
+             alt="Artisan workshop" 
+             class="w-full rounded-lg shadow-xl">
+      </div>
+      <div class="md:w-1/2">
+        <h2 class="font-playfair text-3xl mb-6 text-gray-800">From Humble Beginnings</h2>
+        <p class="text-gray-600 mb-4">Founded in a small studio in Jaipur, SNAPCART began with a simple mission: to preserve traditional craftsmanship while creating beautiful, functional pieces for modern living.</p>
+        <p class="text-gray-600 mb-8">What started as a passion project between three friends has grown into a thriving community of over 200 artisans across India, each bringing their unique skills in jewelry making, perfumery, candle crafting, and leatherwork.</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="stat-card">
+            <div class="stat-number">200+</div>
+            <p class="text-gray-600">Skilled Artisans</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">8+</div>
+            <p class="text-gray-600">Years Experience</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10K+</div>
+            <p class="text-gray-600">Happy Customers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Craftsmanship -->
+  <section class="section bg-white">
+    <h2 class="section-title">Our Artisan Collections</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Jewelry -->
+      <div class="category-card card">
+        <div class="overflow-hidden">
+          <img src="https://i.pinimg.com/736x/5a/7f/24/5a7f2420ee0c1fe5aa4036eaf0a082c9.jpg" 
+               alt="Handcrafted Jewelry" 
+               class="w-full h-64 object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="font-playfair text-xl font-semibold mb-2">Jewelry</h3>
+          <p class="text-gray-600 mb-4">Each piece tells a story, handcrafted using traditional techniques passed down through generations.</p>
+          <a href="jewelry.html" class="text-primary hover:text-primary-light font-medium flex items-center">
+            Explore Collection
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Perfumes -->
+      <div class="category-card card">
+        <div class="overflow-hidden">
+          <img src="https://i.pinimg.com/736x/ee/aa/34/eeaa34998e0f0df36516b564dd1a2367.jpg" 
+               alt="Luxury Perfumes" 
+               class="w-full h-64 object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="font-playfair text-xl font-semibold mb-2">Perfumes</h3>
+          <p class="text-gray-600 mb-4">Captivating scents crafted from rare botanicals and essential oils, blended to perfection.</p>
+          <a href="perfumes.html" class="text-primary hover:text-primary-light font-medium flex items-center">
+            Explore Collection
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Candles -->
+      <div class="category-card card">
+        <div class="overflow-hidden">
+          <img src="https://i.pinimg.com/736x/12/06/b2/1206b2224f834b0b1d0ac4baaf7ba963.jpg" 
+               alt="Artisan Candles" 
+               class="w-full h-64 object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="font-playfair text-xl font-semibold mb-2">Candles</h3>
+          <p class="text-gray-600 mb-4">Hand-poured with natural waxes and premium fragrances to create the perfect ambiance.</p>
+          <a href="candles.html" class="text-primary hover:text-primary-light font-medium flex items-center">
+            Explore Collection
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Bags -->
+      <div class="category-card card">
+        <div class="overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+               alt="Handmade Bags" 
+               class="w-full h-64 object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="font-playfair text-xl font-semibold mb-2">Bags</h3>
+          <p class="text-gray-600 mb-4">Ethically sourced leather and fabrics transformed into functional works of art.</p>
+          <a href="bags.html" class="text-primary hover:text-primary-light font-medium flex items-center">
+            Explore Collection
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="section">
+    <h2 class="section-title">Our Core Values</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Value 1 -->
+      <div class="text-center px-6">
+        <div class="bg-primary-light bg-opacity-20 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+          <i class="fas fa-hands-helping text-primary text-2xl"></i>
+        </div>
+        <h3 class="font-playfair text-xl font-semibold mb-3">Artisan Empowerment</h3>
+        <p class="text-gray-600">We provide fair wages, safe working conditions, and opportunities for skill development to preserve traditional crafts.</p>
+      </div>
+      
+      <!-- Value 2 -->
+      <div class="text-center px-6">
+        <div class="bg-primary-light bg-opacity-20 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+          <i class="fas fa-leaf text-primary text-2xl"></i>
+        </div>
+        <h3 class="font-playfair text-xl font-semibold mb-3">Sustainable Practices</h3>
+        <p class="text-gray-600">From eco-friendly packaging to responsibly sourced materials, we minimize our environmental impact at every step.</p>
+      </div>
+      
+      <!-- Value 3 -->
+      <div class="text-center px-6">
+        <div class="bg-primary-light bg-opacity-20 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+          <i class="fas fa-medal text-primary text-2xl"></i>
+        </div>
+        <h3 class="font-playfair text-xl font-semibold mb-3">Uncompromising Quality</h3>
+        <p class="text-gray-600">Every product undergoes rigorous quality checks to ensure it meets our high standards before reaching you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews -->
+  <section class="section bg-gray-100">
+    <h2 class="section-title">Loved By Our Customers</h2>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">Don't just take our word for it - here's what our community has to say</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Review 1 -->
+      <div class="testimonial-card">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="text-gray-700 mb-6">"The rose gold necklace I purchased is absolutely stunning. The craftsmanship is evident in every detail, and I've received countless compliments!"</p>
+        <div class="flex items-center">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ananya S." class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h4 class="font-semibold">Ananya S.</h4>
+            <p class="text-gray-500 text-sm">Customer since 2020</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Review 2 -->
+      <div class="testimonial-card">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="text-gray-700 mb-6">"The sandalwood perfume has become my signature scent. It's long-lasting and unique - nothing like the commercial fragrances."</p>
+        <div class="flex items-center">
+          <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Rahul M." class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h4 class="font-semibold">Rahul M.</h4>
+            <p class="text-gray-500 text-sm">Customer since 2019</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Review 3 -->
+      <div class="testimonial-card">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="text-gray-700 mb-6">"I've purchased several leather bags and each one gets better with age. The quality is exceptional and they're so practical."</p>
+        <div class="flex items-center">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K." class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h4 class="font-semibold">Priya K.</h4>
+            <p class="text-gray-500 text-sm">Customer since 2021</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- View More Button -->
+    <div class="text-center mt-12">
+      <a href="reviews.html" class="btn btn-primary">
+        View All Reviews
+      </a>
+    </div>
+  </section>
+
+  <!-- Meet the Artisans -->
+  <section class="section">
+    <h2 class="section-title">Meet Our Artisans</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Artisan 1 -->
+      <div class="artisan-card">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+             alt="Meena K." 
+             class="artisan-img">
+        <h3 class="font-playfair text-xl font-semibold mb-1">Meena K.</h3>
+        <p class="text-primary mb-3">Jewelry Maker</p>
+        <p class="text-gray-600 text-sm">"I've been practicing the art of Kundan jewelry for 22 years. Each piece I create carries a piece of my heritage."</p>
+      </div>
+      
+      <!-- Artisan 2 -->
+      <div class="artisan-card">
+        <img src="https://i.pinimg.com/736x/6a/81/6a/6a816ae4d89619bc368d119bef3f350f.jpg" 
+             alt="Arjun P." 
+             class="artisan-img">
+        <h3 class="font-playfair text-xl font-semibold mb-1">Arjun P.</h3>
+        <p class="text-primary mb-3">Perfumer</p>
+        <p class="text-gray-600 text-sm">"Creating fragrances is like composing music - each note must harmonize perfectly. My inspiration comes from nature's bounty."</p>
+      </div>
+      
+      <!-- Artisan 3 -->
+      <div class="artisan-card">
+        <img src="https://i.pinimg.com/736x/2a/5d/98/2a5d9824f6dd34f4e9480a809aca91fd.jpg" 
+             alt="Lakshmi R." 
+             class="artisan-img">
+        <h3 class="font-playfair text-xl font-semibold mb-1">Lakshmi R.</h3>
+        <p class="text-primary mb-3">Candle Maker</p>
+        <p class="text-gray-600 text-sm">"There's magic in transforming simple wax into something that can light up homes and hearts. Each candle is made with love."</p>
+      </div>
+      
+      <!-- Artisan 4 -->
+      <div class="artisan-card">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+             alt="Vikram S." 
+             class="artisan-img">
+        <h3 class="font-playfair text-xl font-semibold mb-1">Vikram S.</h3>
+        <p class="text-primary mb-3">Leather Craftsman</p>
+        <p class="text-gray-600 text-sm">"Leather tells a story. With every stitch, I aim to create bags that will age beautifully and last for generations."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-playfair text-3xl md:text-4xl mb-6">Ready to Experience Artisan Craftsmanship?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of satisfied customers who appreciate handmade quality and timeless design.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="products.html" class="btn btn-primary">Shop Now</a>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+ 
+
+
+    <!-- FOOTER -->
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+
+</body>
+</html>

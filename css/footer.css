@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  background-color: #d4a373;
+  color: white;
+  gap: 30px;
+  padding: 40px 60px;
+  text-transform: uppercase;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.footer-column p {
+  margin: 8px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-column p:hover,
+.footer-column h3:hover {
+  color: lightslategray;
+}
+
+.footer-credit {
+  text-align: center;
+  padding: 20px;
+  background-color: #9c6f44;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.footer-credit a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.footer-credit a::after {
+  content: "";
+  background: white;
+  mix-blend-mode: exclusion;
+  width: calc(100% + 18px);
+  height: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+  transition: all .3s ease;
+}
+
+.footer-credit a:hover::after {
+  height: calc(100% + 8px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 30px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    font-size: 12px;
+  }
+
+  .footer-column {
+    padding: 10px;
+  }
+}

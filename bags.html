@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Designer Bags | SNAPCART</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16"/>
+  <script src="https://kit.fontawesome.com/4a3b1f73a2.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* Same CSS as previous pages */
+    :root {
+      --primary: #9c6f44;
+      --primary-light: #d4a373;
+      --light-bg: #f9f5f0;
+      --dark: #3a3a3a;
+      --gray: #6c757d;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    
+    /* Header Styles */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Logo */
+    #shopName a {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      text-decoration: none;
+      color: #2a2a2a;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    #shopName a:hover {
+      color: #d08f66;
+    }
+
+    #shopName a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: width 0.3s;
+    }
+
+    #shopName a:hover::after {
+      width: 100%;
+    }
+
+    /* Navigation Menu */
+    #collection {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    #collection div a {
+      font-weight: 600;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #collection div a:hover {
+      color: #d08f66;
+    }
+
+    #collection div a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: all 0.3s;
+    }
+
+    #collection div a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Product Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      padding: 10px 0;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f9f5f0;
+      color: #d08f66;
+      padding-left: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Search Box */
+    #search {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      padding: 8px 15px;
+      border-radius: 30px;
+      width: 250px;
+      transition: all 0.3s;
+    }
+
+    #search:focus-within {
+      box-shadow: 0 0 0 2px rgba(208, 143, 102, 0.3);
+      background-color: #fff;
+    }
+
+    #search i {
+      color: #888;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* User Section */
+    #user {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #user a {
+      color: #333;
+      font-size: 22px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #user a:hover {
+      color: #d08f66;
+      transform: translateY(-2px);
+    }
+
+    /* Cart Icon */
+    .cart-link {
+      position: relative;
+    }
+
+    /* Badge Styling */
+    #badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu */
+    #hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    #hamburger:hover {
+      color: #d08f66;
+      transform: rotate(90deg);
+    }
+
+    /* ----------------------------- */
+    /* Responsive Styles */
+    /* ----------------------------- */
+    @media (max-width: 992px) {
+      #search {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #container {
+        padding: 10px 15px;
+      }
+
+      #collection {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        gap: 15px;
+      }
+
+      #collection.show {
+        display: flex;
+      }
+
+      #collection div a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 5px 0 5px 15px;
+      }
+
+      #search {
+        width: 100%;
+        margin: 15px 0;
+      }
+
+      #user {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #hamburger {
+        display: block;
+        order: 1;
+      }
+
+      #shopName {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      #user {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopName a {
+        font-size: 26px;
+      }
+      
+      #user {
+        gap: 15px;
+      }
+    }
+    
+    /* Main Content Styles */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+.section-header {
+        text-align: center;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+    
+    .page-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        color: #9c6f44;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .page-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: #d4a373;
+    }
+    
+    .title-divider {
+        width: 200px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #d4a373, transparent);
+        margin: 25px auto 40px;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.2rem;
+        }
+        
+        .page-title::after {
+            bottom: -10px;
+            width: 80px;
+        }
+        
+        .title-divider {
+            width: 150px;
+        }
+    }
+    
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2;
+    }
+    .product-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .product-info {
+      padding: 20px;
+    }
+    .product-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .product-category {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: rgba(208, 143, 115, 0.1);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .product-price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin: 10px 0;
+    }
+    .product-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .add-to-cart {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .add-to-cart:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .rating {
+      color: gold;
+      margin: 8px 0;
+      font-size: 0.9rem;
+    }
+    
+    /* Hero Video Styling */
+    .hero-video {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .hero-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.3);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .video-overlay h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    
+    .video-overlay p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+      letter-spacing: 0.5px;
+    }
+    
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      #collection {
+        gap: 15px;
+      }
+      #search input {
+        width: 150px;
+      }
+    }
+    @media (max-width: 768px) {
+      #hamburger {
+        display: block;
+      }
+      #collection {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        display: none;
+        gap: 15px;
+      }
+      #collection.show {
+        display: flex;
+      }
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        display: none;
+      }
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+      #search input {
+        width: 100%;
+      }
+      
+      .page-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-video {
+        height: 300px;
+      }
+      
+      .video-overlay h2 {
+        font-size: 2rem;
+      }
+      
+      .video-overlay p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .page-title {
+        font-size: 1.8rem;
+      }
+      
+      .page-title::after {
+        bottom: -10px;
+        width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <section>
+      <div id="container">
+        <!-- Hamburger for Mobile -->
+        <div id="hamburger">&#9776;</div>
+
+        <!-- Logo -->
+        <div id="shopName"><a href="index.html"><b>SNAP</b>CART</a></div>
+
+        <!-- Navigation Links -->
+        <div id="collection">
+          <div><a href="index.html">HOME</a></div>
+          <div><a href="about.html">ABOUT</a></div>
+          <div class="dropdown">
+            <a class="dropbtn">PRODUCTS <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content">
+              <a href="./jewelry.html">Jewelry</a>
+              <a href="./candel.html">Candles</a>
+              <a href="./bags.html">Bags</a>
+              <a href="./perfume.html">Perfume</a>
+            </div>
+          </div>
+          <div><a href="Contact.html">CONTACT</a></div>
+          <div id="search">
+            <i class="fas fa-search search"></i>
+            <input type="text" id="input" name="searchBox" placeholder="Search handmade gifts..."/>
+          </div>
+        </div>
+
+        <!-- User Icons -->
+        <div id="user">
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <div id="badge">0</div>
+          </a>
+          <a href="#"><i class="fas fa-user-circle"></i></a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+<div class="container">
+    <div class="section-header">
+        <h1 class="page-title">Designer Bag Collection</h1>
+        <div class="title-divider"></div>
+    </div>
+    
+    <!-- Hero Video Section -->
+    <section class="hero-video">
+        <video autoplay loop muted playsinline>
+            <source src="./assets/bags-clip.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay">
+            <h2>Premium Bag Collection</h2>
+            <p>Luxury Bags</p>
+        </div>
+    </section>
+
+    <div class="products-grid" id="bagsContainer">
+      <!-- Bag products will be added here by JavaScript -->
+    </div>
+  </div>
+
+    <!-- FOOTER -->
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const collection = document.getElementById("collection");
+
+    hamburger.addEventListener("click", () => {
+      collection.classList.toggle("show");
+    });
+
+    // Dropdown functionality
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+      const dropbtn = dropdown.querySelector('.dropbtn');
+      
+      dropbtn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown') && !event.target.matches('#hamburger')) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        dropdowns.forEach(dropdown => {
+          dropdown.style.display = 'none';
+        });
+        
+        if (window.innerWidth <= 768) {
+          document.querySelectorAll('.dropdown').forEach(drop => {
+            drop.classList.remove('active');
+          });
+          collection.classList.remove("show");
+        }
+      }
+    });
+
+    // Update cart badge from localStorage
+    function updateCartBadge() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+      document.getElementById('badge').textContent = totalItems;
+    }
+
+    // Bag Products Data (15 items with unique images and descriptions)
+    const bags = [
+      {
+        id: 201,
+        name: "Classic Leather Tote",
+        price: "Rs 24,999",
+        desc: "Premium full-grain leather tote with brass hardware. Spacious main compartment with zip closure. Dimensions: 35cm x 25cm x 15cm.",
+        rating: 4.8,
+        img: "https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_420/01/nm_4096267_100241_m",
+        category: "Totes",
+        material: "Genuine Leather",
+        color: "Chestnut Brown",
+        badge: "BEST SELLER"
+      },
+      {
+        id: 202,
+        name: "Vegan Crossbody Bag",
+        price: "Rs 18,499",
+        desc: "Ethical vegan leather crossbody with adjustable strap. Features multiple pockets for organization. Dimensions: 25cm x 18cm x 8cm.",
+        rating: 4.5,
+        img: "https://media.naheed.pk/catalog/product/cache/2f2d0cb0c5f92580479e8350be94f387/i/c/ic-1274958-brown-1.jpg",
+        category: "Crossbody",
+        material: "Vegan Leather",
+        color: "Black"
+      },
+      {
+        id: 203,
+        name: "Evening Clutch",
+        price: "Rs 15,999",
+        desc: "Satin evening clutch with crystal embellishments. Includes detachable chain strap. Dimensions: 22cm x 12cm x 5cm.",
+        rating: 4.6,
+        img: "https://img.lazcdn.com/g/p/e12fdc436bd5333a1cea9bbee3368e7c.jpg_720x720q80.jpg",
+        category: "Clutches",
+        material: "Satin",
+        color: "Gold",
+        badge: "NEW"
+      },
+      {
+        id: 204,
+        name: "Travel Backpack",
+        price: "Rs 21,499",
+        desc: "Convertible backpack with USB charging port and anti-theft design. Water-resistant nylon. Dimensions: 45cm x 30cm x 15cm.",
+        rating: 4.4,
+        img: "https://www.lulus.com/images/product/xlarge/10895441_2163236.jpg?w=375&hdpi=1",
+        category: "Backpacks",
+        material: "Nylon",
+        color: "Navy Blue"
+      },
+      {
+        id: 205,
+        name: "Structured Shoulder Bag",
+        price: "Rs 22,799",
+        desc: "Structured shoulder bag with magnetic flap closure. Includes interior slip pockets. Dimensions: 28cm x 20cm x 10cm.",
+        rating: 4.7,
+        img: "https://i.pinimg.com/236x/72/d9/26/72d926d716bcdb70dd59dc6f125fbe50.jpg",
+        category: "Shoulder Bags",
+        material: "Pebbled Leather",
+        color: "Burgundy"
+      },
+      {
+        id: 206,
+        name: "Mini Bucket Bag",
+        price: "Rs 16,999",
+        desc: "Trendy mini bucket bag with drawstring closure. Comes with adjustable and detachable strap. Dimensions: 20cm x 20cm x 15cm.",
+        rating: 4.3,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLhKDGXb0Xchfe38eYmdhFqF9JjH0L9lprOEH847KmJlDqYlEyeXNVxwSm5Le15QEm2bY&usqp=CAU",
+        category: "Bucket Bags",
+        material: "Suede",
+        color: "Dusty Pink",
+        badge: "POPULAR"
+      },
+      {
+        id: 207,
+        name: "Laptop Briefcase",
+        price: "Rs 26,499",
+        desc: "Professional briefcase fits up to 15 laptop. Padded shoulder strap and multiple compartments. Dimensions: 40cm x 30cm x 10cm.",
+        rating: 4.6,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PWWjnx8KV8MzvvB3EPiHmomgD7-GDAdv5A&s",
+        category: "Briefcases",
+        material: "Full-grain Leather",
+        color: "Dark Brown"
+      },
+      {
+        id: 208,
+        name: "Quilted Chain Bag",
+        price: "Rs 28,999",
+        desc: "Luxury quilted bag with metal chain strap. Signature diamond stitching pattern. Dimensions: 25cm x 16cm x 8cm.",
+        rating: 4.9,
+        img: "https://pluseslife.com/cdn/shop/files/IMG_8907.jpg?v=1723541435",
+        category: "Evening Bags",
+        material: "Lambskin Leather",
+        color: "Black",
+        badge: "LUXURY"
+      },
+      {
+        id: 209,
+        name: "Canvas Tote",
+        price: "Rs 14,999",
+        desc: "Sturdy canvas tote with leather accents. Roomy main compartment. Dimensions: 38cm x 35cm x 12cm.",
+        rating: 4.2,
+        img: "https://m.media-amazon.com/images/I/41+f-hAnn-L._SL500_.jpg",
+        category: "Totes",
+        material: "Canvas",
+        color: "Natural"
+      },
+      {
+        id: 210,
+        name: "Convertible Backpack Purse",
+        price: "Rs 19,799",
+        desc: "2-in-1 design converts from backpack to crossbody. Lightweight and water-resistant. Dimensions: 30cm x 25cm x 12cm.",
+        rating: 4.5,
+        img: "https://img.kwcdn.com/product/open/4d1b527ee0104a3a95493eaf8cbd24bc-goods.jpeg?imageView2/2/w/500/q/60/format/webp",
+        category: "Backpacks",
+        material: "Polyester",
+        color: "Olive Green"
+      },
+      {
+        id: 211,
+        name: "Woven Straw Bag",
+        price: "Rs 17,499",
+        desc: "Handwoven straw bag with leather trim. Perfect for summer outings. Dimensions: 30cm x 25cm x 10cm.",
+        rating: 4.4,
+        img: "https://boogzelclothing.com/cdn/shop/files/Minimalist-Aesthetic-Tote-Handbag-Boogzel-Clothing-8_800x.jpg?v=1693106462",
+        category: "Beach Bags",
+        material: "Straw",
+        color: "Natural",
+        badge: "SEASONAL"
+      },
+      {
+        id: 212,
+        name: "Metallic Evening Clutch",
+        price: "Rs 16,299",
+        desc: "Shimmering metallic clutch with wristlet strap. Fits essentials for night out. Dimensions: 20cm x 12cm x 3cm.",
+        rating: 4.3,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAjw_wdGvjPLcKn-BZSYaHUkd7kUcED9v4eA&s",
+        category: "Clutches",
+        material: "Metallic Leather",
+        color: "Silver"
+      },
+      {
+        id: 213,
+        name: "Belt Bag",
+        price: "Rs 13,999",
+        desc: "Trendy belt bag with adjustable waist strap. Three compartment design. Dimensions: 25cm x 15cm x 8cm.",
+        rating: 4.1,
+        img: "https://images.fashiontiy.com/products/T103D0FA3A/color_1.jpg?x-oss-process=image/resize,m_fill,w_200,h_200/interlace,1/format,webp",
+        category: "Waist Bags",
+        material: "Nylon",
+        color: "Black"
+      },
+      {
+        id: 214,
+        name: "Oversized Shopper",
+        price: "Rs 23,499",
+        desc: "Extra large shopper tote with reinforced handles. Ideal for work or travel. Dimensions: 45cm x 35cm x 15cm.",
+        rating: 4.6,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGpffEIx4YS6qWP-T4FIrUtNwOzCjTSpyDbmyH7Xz7pNJVbkPLjQdSESQF3wV9g2ax1fE&usqp=CAU",
+        category: "Totes",
+        material: "Cotton Canvas",
+        color: "Beige",
+        badge: "NEW"
+      },
+      {
+        id: 215,
+        name: "Mini Backpack",
+        price: "Rs 18,999",
+        desc: "Chic mini backpack with gold-tone hardware. Adjustable shoulder straps. Dimensions: 25cm x 20cm x 10cm.",
+        rating: 4.5,
+        img: "https://i.pinimg.com/474x/11/18/3b/11183bedc4aa32803e0e4a7bc93a6b3f.jpg",
+        category: "Backpacks",
+        material: "Faux Leather",
+        color: "Blush Pink"
+      }
+    ];
+
+    // Create bag cards
+    function createBagCards() {
+      const container = document.getElementById('bagsContainer');
+      
+      bags.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.dataset.category = `${item.category.toLowerCase()} ${item.material.toLowerCase().replace(' ', '-')}`;
+        
+        let badgeHTML = '';
+        if (item.badge) {
+          badgeHTML = `<span class="product-badge">${item.badge}</span>`;
+        }
+        
+        card.innerHTML = `
+          ${badgeHTML}
+          <img src="${item.img}" class="product-img" alt="${item.name}">
+          <div class="product-info">
+            <span class="product-category">${item.category} | ${item.material} (${item.color})</span>
+            <h3 class="product-title">${item.name}</h3>
+            <div class="rating">${'★'.repeat(Math.floor(item.rating))}${item.rating % 1 >= 0.5 ? '½' : ''}</div>
+            <p class="product-desc">${item.desc}</p>
+            <div class="product-price">${item.price}</div>
+            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+          </div>
+        `;
+        
+        // Add to cart functionality
+        const addToCartBtn = card.querySelector('.add-to-cart');
+        addToCartBtn.addEventListener('click', () => {
+          let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+          
+          // Check if item already exists in cart
+          const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+          if (existingItem) {
+            existingItem.quantity = (existingItem.quantity || 1) + 1;
+          } else {
+            cartItems.push({...item, quantity: 1});
+          }
+          
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          updateCartBadge();
+          
+          // Show notification
+          showNotification(`${item.name} added to cart!`);
+        });
+        
+        container.appendChild(card);
+      });
+    }
+
+    // Show notification
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }, 3000);
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartBadge();
+      createBagCards();
+    });
+  </script>
+</body>
+</html>

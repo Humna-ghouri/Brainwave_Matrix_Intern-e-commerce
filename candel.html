@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxury Candles | SNAPCART</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16"/>
+  <script src="https://kit.fontawesome.com/4a3b1f73a2.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #9c6f44;
+      --primary-light: #d4a373;
+      --light-bg: #f9f5f0;
+      --dark: #3a3a3a;
+      --gray: #6c757d;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    /* Header Styles */
+
+    /* Reset and Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffefc;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Logo */
+    #shopName a {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      text-decoration: none;
+      color: #2a2a2a;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    #shopName a:hover {
+      color: #d08f66;
+    }
+
+    #shopName a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: width 0.3s;
+    }
+
+    #shopName a:hover::after {
+      width: 100%;
+    }
+
+    /* Navigation Menu */
+    #collection {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    #collection div a {
+      font-weight: 600;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #collection div a:hover {
+      color: #d08f66;
+    }
+
+    #collection div a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: all 0.3s;
+    }
+
+    #collection div a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Product Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      padding: 10px 0;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f9f5f0;
+      color: #d08f66;
+      padding-left: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Search Box */
+    #search {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      padding: 8px 15px;
+      border-radius: 30px;
+      width: 250px;
+      transition: all 0.3s;
+    }
+
+    #search:focus-within {
+      box-shadow: 0 0 0 2px rgba(208, 143, 102, 0.3);
+      background-color: #fff;
+    }
+
+    #search i {
+      color: #888;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* User Section */
+    #user {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #user a {
+      color: #333;
+      font-size: 22px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #user a:hover {
+      color: #d08f66;
+      transform: translateY(-2px);
+    }
+
+    /* Cart Icon */
+    .cart-link {
+      position: relative;
+    }
+
+    /* Badge Styling */
+    #badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu */
+    #hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    #hamburger:hover {
+      color: #d08f66;
+      transform: rotate(90deg);
+    }
+
+    /* ----------------------------- */
+    /* Responsive Styles */
+    /* ----------------------------- */
+    @media (max-width: 992px) {
+      #search {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #container {
+        padding: 10px 15px;
+      }
+
+      #collection {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        gap: 15px;
+      }
+
+      #collection.show {
+        display: flex;
+      }
+
+      #collection div a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 5px 0 5px 15px;
+      }
+
+      #search {
+        width: 100%;
+        margin: 15px 0;
+      }
+
+      #user {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #hamburger {
+        display: block;
+        order: 1;
+      }
+
+      #shopName {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      #user {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopName a {
+        font-size: 26px;
+      }
+      
+      #user {
+        gap: 15px;
+      }
+    }
+    /* Main Content Styles */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .page-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 2.5rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2;
+    }
+    .product-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .product-info {
+      padding: 20px;
+    }
+    .product-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .product-category {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: rgba(208, 143, 115, 0.1);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .product-price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin: 10px 0;
+    }
+    .product-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .add-to-cart {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .add-to-cart:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .rating {
+      color: gold;
+      margin: 8px 0;
+      font-size: 0.9rem;
+    }
+    
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      #collection {
+        gap: 15px;
+      }
+      #search input {
+        width: 150px;
+      }
+    }
+    @media (max-width: 768px) {
+      #hamburger {
+        display: block;
+      }
+      #collection {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        display: none;
+        gap: 15px;
+      }
+      #collection.show {
+        display: flex;
+      }
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        display: none;
+      }
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+      #search input {
+        width: 100%;
+      }
+    }
+    @media (max-width: 576px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+      <header>
+    <section>
+      <div id="container">
+        <!-- Hamburger for Mobile -->
+        <div id="hamburger">&#9776;</div>
+
+        <!-- Logo -->
+        <div id="shopName"><a href="index.html"><b>SNAP</b>CART</a></div>
+
+        <!-- Navigation Links -->
+        <div id="collection">
+          <div><a href="index.html">HOME</a></div>
+          <div><a href="about.html">ABOUT</a></div>
+          <div class="dropdown">
+            <a  class="dropbtn">PRODUCTS <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content">
+              <a href="./jewelry.html">Jewelry</a>
+              <a href="./candel.html">Candles</a>
+              <a href="./bags.html">Bags</a>
+              <a href="./perfume.html">Perfume</a>
+            </div>
+          </div>
+          <div><a href="Contact.html">CONTACT</a></div>
+          <div id="search">
+            <i class="fas fa-search search"></i>
+            <input type="text" id="input" name="searchBox" placeholder="Search handmade gifts..."/>
+          </div>
+        </div>
+
+        <!-- User Icons -->
+        <div id="user">
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <div id="badge">0</div>
+          </a>
+          <a href="#"><i class="fas fa-user-circle"></i></a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const collection = document.getElementById("collection");
+
+    hamburger.addEventListener("click", () => {
+      collection.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown') && !event.target.matches('#hamburger')) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        dropdowns.forEach(dropdown => {
+          dropdown.style.display = 'none';
+        });
+        
+        if (window.innerWidth <= 768) {
+          collection.classList.remove("show");
+        }
+      }
+    });
+
+    // Update cart badge from localStorage
+    function updateCartBadge() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('badge').textContent = totalItems;
+    }
+
+    // Initialize cart badge
+    updateCartBadge();
+  </script>
+
+    
+  <div class="container">
+    <h1 class="page-title">Luxury Candle Collection</h1>
+       <!-- Hero Video Section -->
+    <section class="hero-video">
+        <video autoplay loop muted playsinline>
+            <source src="./assets/candel-clip.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay">
+            <h2>Candels Collection</h2>
+            <p>Happiness never decreases by being shared</p>
+        </div>
+    </section>
+
+    <style>
+        /* Elegant Title Styling */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .elegant-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #9c6f44;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .elegant-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d4a373;
+        }
+        
+        .title-divider {
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4a373, transparent);
+            margin: 0 auto 30px;
+        }
+        
+        /* Hero Video Styling */
+        .hero-video {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .video-overlay h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .video-overlay p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 768px) {
+            .elegant-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-video {
+                height: 300px;
+            }
+            
+            .video-overlay h2 {
+                font-size: 2rem;
+            }
+            
+            .video-overlay p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</div>
+
+    <div class="products-grid" id="candlesContainer">
+      <!-- Candle products will be added here by JavaScript -->
+    </div>
+  </div>
+  <!-- FOOTER -->
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+  <script>
+
+    // Candle Products Data (15 items)
+    const candles = [
+      {
+        id: 81,
+        name: "Lavender Dreams",
+        price: "Rs 2,499",
+        desc: "Soothing lavender essential oil blend in natural soy wax with 60+ hours burn time",
+        rating: 4.5,
+        img: "https://candlefy.com/cdn/shop/files/sea-salt-fig-scented-candle-made-with-natural-coconut-wax-719446.jpg?v=1714683361&width=1920",
+        category: "Floral",
+        waxType: "Soy Wax",
+        burnTime: "60+ hours",
+        badge: "BEST SELLER"
+      },
+      {
+        id: 82,
+        name: "Vanilla Bliss",
+        price: "Rs 2,199",
+        desc: "Warm vanilla bean in natural coconut wax with 60+ hours burn time",
+        rating: 4.3,
+        img: "https://img.lazcdn.com/g/ff/kf/S181dcce9db8941b8a92390cfcf076873q.jpg_720x720q80.jpg",
+        category: "Sweet",
+        waxType: "Coconut Wax",
+        burnTime: "60+ hours"
+      },
+      {
+        id: 83,
+        name: "Citrus Burst",
+        price: "Rs 2,299",
+        desc: "Energizing orange and grapefruit essential oils with 60+ hours burn time",
+        rating: 4.2,
+        img: "https://www.toobas.pk/cdn/shop/files/il_794xN.6027893818_cehl.jpg?v=1730786782",
+        category: "Citrus",
+        waxType: "Soy Wax",
+        burnTime: "60+ hours",
+        badge: "NEW"
+      },
+      {
+        id: 84,
+        name: "Sandalwood Serenity",
+        price: "Rs 2,799",
+        desc: "Earthy sandalwood with hints of amber, 80+ hours burn time",
+        rating: 4.6,
+        img: "https://d1iv6qgcmtzm6l.cloudfront.net/products/lg_5wiwxscFqgyrZpyqtjgCSWmVOcHQnBu6wSE2ek7i.jpg",
+        category: "Woody",
+        waxType: "Beeswax",
+        burnTime: "80+ hours"
+      },
+      {
+        id: 85,
+        name: "Rose Petals",
+        price: "Rs 2,599",
+        desc: "Romantic rose fragrance with subtle musk, 40+ hours burn time",
+        rating: 4.4,
+        img: "https://www.happyhouse.com.pk/cdn/shop/files/WhatsAppImage2024-01-06at12.30.38PM.jpg?v=1748105455",
+        category: "Floral",
+        waxType: "Soy Wax",
+        burnTime: "40+ hours"
+      },
+      {
+        id: 86,
+        name: "Ocean Breeze",
+        price: "Rs 2,899",
+        desc: "Fresh oceanic scent with sea salt notes, 60+ hours burn time",
+        rating: 4.3,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYJauC2moIiMUaI8BwxWKtzEZHDOtxdK7LA&s",
+        category: "Fresh",
+        waxType: "Soy Wax",
+        burnTime: "60+ hours",
+        badge: "LIMITED"
+      },
+      {
+        id: 87,
+        name: "Cinnamon Spice",
+        price: "Rs 2,399",
+        desc: "Warm cinnamon with clove and nutmeg, 60+ hours burn time",
+        rating: 4.5,
+        img: "https://assets.clevelandclinic.org/transform/LargeFeatureImage/75a350b9-dc2b-4be4-a4e2-872a132b8378/Candles-1176171347-770x533-1_jpg",
+        category: "Spicy",
+        waxType: "Coconut Wax",
+        burnTime: "60+ hours"
+      },
+      {
+        id: 88,
+        name: "Cedarwood Forest",
+        price: "Rs 2,699",
+        desc: "Rich cedarwood with pine and vetiver, 80+ hours burn time",
+        rating: 4.4,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxl5XLKZ3mq7nv05vgECvU52va9Y6Ok2Xbtw&s",
+        category: "Woody",
+        waxType: "Soy Wax",
+        burnTime: "80+ hours"
+      },
+      {
+        id: 89,
+        name: "Lemon Zest",
+        price: "Rs 2,199",
+        desc: "Bright lemon with a hint of basil, 40+ hours burn time",
+        rating: 4.1,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQArvdrnxTYZsVXFuBciq_hXSTFcDXa_OCqrA&s",
+        category: "Citrus",
+        waxType: "Soy Wax",
+        burnTime: "40+ hours"
+      },
+      {
+        id: 90,
+        name: "Jasmine Nights",
+        price: "Rs 2,799",
+        desc: "Exotic jasmine with white floral notes, 60+ hours burn time",
+        rating: 4.5,
+        img: "https://tohgarden.com/wp-content/uploads/2021/08/Glass-Jar-Preserved-Flower-Aromatherapy-Luxury-Fragrance-Scented-Candle-2.png",
+        category: "Floral",
+        waxType: "Beeswax",
+        burnTime: "60+ hours"
+      },
+      {
+        id: 91,
+        name: "Spring Rain",
+        price: "Rs 2,499",
+        desc: "Clean rain scent with green tea notes, 60+ hours burn time",
+        rating: 4.3,
+        img: "https://content2.flowwow-images.com/data/flowers/524x524/63/1721762381_79446563.jpg",
+        category: "Fresh",
+        waxType: "Coconut Wax",
+        burnTime: "60+ hours",
+        badge: "POPULAR"
+      },
+      {
+        id: 92,
+        name: "Chai Tea",
+        price: "Rs 2,599",
+        desc: "Warm chai spices with black tea and vanilla, 80+ hours burn time",
+        rating: 4.6,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS04DuPqfb86J8J3w6S3y7rTU8iAefcl8qS6g&s",
+        category: "Spicy",
+        waxType: "Soy Wax",
+        burnTime: "80+ hours"
+      },
+      {
+        id: 93,
+        name: "Pink Grapefruit",
+        price: "Rs 2,299",
+        desc: "Juicy grapefruit with hints of bergamot, 40+ hours burn time",
+        rating: 4.2,
+        img: "https://www.kindredfires.com/cdn/shop/products/thank-you-gift-minimalist-luxury-scented-candle.jpg?v=1742503323&width=1946",
+        category: "Citrus",
+        waxType: "Coconut Wax",
+        burnTime: "40+ hours"
+      },
+      {
+        id: 94,
+        name: "Mahogany Teakwood",
+        price: "Rs 2,399",
+        desc: "Rich mahogany with teak and oak, 60+ hours burn time",
+        rating: 4.4,
+        img: "https://scentsnsecrets.com/cdn/shop/files/Copy_of_Rose_Vault_-_Candle.webp?v=1750026707",
+        category: "Woody",
+        waxType: "Paraffin",
+        burnTime: "60+ hours"
+      },
+      {
+        id: 95,
+        name: "Peony Blossom",
+        price: "Rs 2,699",
+        desc: "Lush peony with rose and magnolia, 60+ hours burn time",
+        rating: 4.5,
+        img: "https://www.colishco.com/cdn/shop/files/LILLY.png?v=1719908086",
+        category: "Floral",
+        waxType: "Soy Wax",
+        burnTime: "60+ hours",
+        badge: "NEW"
+      }
+    ];
+
+    // Cart functionality
+    function updateCartBadge() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+      document.getElementById('badge').textContent = totalItems;
+    }
+
+    // Create candle cards
+    function createCandleCards() {
+      const container = document.getElementById('candlesContainer');
+      
+      candles.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.dataset.category = `${item.category.toLowerCase()} ${item.waxType.toLowerCase().replace(' ', '-')} ${item.burnTime.toLowerCase()}`;
+        
+        let badgeHTML = '';
+        if (item.badge) {
+          badgeHTML = `<span class="product-badge">${item.badge}</span>`;
+        }
+        
+        card.innerHTML = `
+          ${badgeHTML}
+          <img src="${item.img}" class="product-img" alt="${item.name}">
+          <div class="product-info">
+            <span class="product-category">${item.category} | ${item.waxType}</span>
+            <h3 class="product-title">${item.name}</h3>
+            <div class="rating">${'★'.repeat(Math.floor(item.rating))}${item.rating % 1 >= 0.5 ? '½' : ''}</div>
+            <p class="product-desc">${item.desc}</p>
+            <div class="product-price">${item.price}</div>
+            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+          </div>
+        `;
+        
+        // Add to cart functionality
+        const addToCartBtn = card.querySelector('.add-to-cart');
+        addToCartBtn.addEventListener('click', () => {
+          let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+          
+          // Check if item already exists in cart
+          const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+          if (existingItem) {
+            existingItem.quantity = (existingItem.quantity || 1) + 1;
+          } else {
+            cartItems.push({...item, quantity: 1});
+          }
+          
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          updateCartBadge();
+          
+          // Show notification
+          showNotification(`${item.name} added to cart!`);
+        });
+        
+        container.appendChild(card);
+      });
+    }
+
+    // Show notification
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }, 3000);
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartBadge();
+      createCandleCards();
+    });
+  </script>
+
+  
+</body>
+</html>

@@ -1,0 +1,307 @@
+
+    /* Reset and Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffefc;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Logo */
+    #shopName a {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      text-decoration: none;
+      color: #2a2a2a;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    #shopName a:hover {
+      color: #d08f66;
+    }
+
+    #shopName a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: width 0.3s;
+    }
+
+    #shopName a:hover::after {
+      width: 100%;
+    }
+
+    /* Navigation Menu */
+    #collection {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    #collection div a {
+      font-weight: 600;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #collection div a:hover {
+      color: #d08f66;
+    }
+
+    #collection div a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #d08f66;
+      transition: all 0.3s;
+    }
+
+    #collection div a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Product Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      padding: 10px 0;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f9f5f0;
+      color: #d08f66;
+      padding-left: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Search Box */
+    #search {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      padding: 8px 15px;
+      border-radius: 30px;
+      width: 250px;
+      transition: all 0.3s;
+    }
+
+    #search:focus-within {
+      box-shadow: 0 0 0 2px rgba(208, 143, 102, 0.3);
+      background-color: #fff;
+    }
+
+    #search i {
+      color: #888;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* User Section */
+    #user {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #user a {
+      color: #333;
+      font-size: 22px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #user a:hover {
+      color: #d08f66;
+      transform: translateY(-2px);
+    }
+
+    /* Cart Icon */
+    .cart-link {
+      position: relative;
+    }
+
+    /* Badge Styling */
+    #badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu */
+    #hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    #hamburger:hover {
+      color: #d08f66;
+      transform: rotate(90deg);
+    }
+
+    /* ----------------------------- */
+    /* Responsive Styles */
+    /* ----------------------------- */
+    @media (max-width: 992px) {
+      #search {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #container {
+        padding: 10px 15px;
+      }
+
+      #collection {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        gap: 15px;
+      }
+
+      #collection.show {
+        display: flex;
+      }
+
+      #collection div a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 5px 0 5px 15px;
+      }
+
+      #search {
+        width: 100%;
+        margin: 15px 0;
+      }
+
+      #user {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #hamburger {
+        display: block;
+        order: 1;
+      }
+
+      #shopName {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      #user {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopName a {
+        font-size: 26px;
+      }
+      
+      #user {
+        gap: 15px;
+      }
+    }

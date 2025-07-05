@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HEADER | SNAPCART</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16"/>
+  <script src="https://kit.fontawesome.com/4a3b1f73a2.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #9c6f44;
+      --primary-light: #d4a373;
+      --light-bg: #f9f5f0;
+      --dark: #3a3a3a;
+      --gray: #6c757d;
+    }
+    
+    /* Header Styling */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Logo */
+    #shopName a {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    #shopName a:hover {
+      color: var(--primary-light);
+    }
+
+    /* Navigation Menu */
+    #collection {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    #collection div a {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #collection div a:hover {
+      color: var(--primary);
+    }
+
+    #collection div a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.3s;
+    }
+
+    #collection div a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Product Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      padding: 10px 0;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: var(--dark);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--light-bg);
+      color: var(--primary);
+      padding-left: 20px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Search Box */
+    #search {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      padding: 8px 15px;
+      border-radius: 30px;
+      width: 250px;
+      transition: all 0.3s;
+    }
+
+    #search:focus-within {
+      box-shadow: 0 0 0 2px rgba(156, 111, 68, 0.3);
+      background-color: #fff;
+    }
+
+    #search i {
+      color: #888;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* User Section */
+    #user {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #user a {
+      color: var(--dark);
+      font-size: 22px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    #user a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Cart Icon */
+    .cart-link {
+      position: relative;
+    }
+
+    /* Badge Styling */
+    #badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu */
+    #hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: var(--dark);
+      transition: all 0.3s;
+    }
+
+    #hamburger:hover {
+      color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      #search {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #container {
+        padding: 10px 15px;
+      }
+
+      #collection {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        gap: 15px;
+      }
+
+      #collection.show {
+        display: flex;
+      }
+
+      #collection div a {
+        padding: 10px 0;
+        display: block;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 5px 0 5px 15px;
+      }
+
+      #search {
+        width: 100%;
+        margin: 15px 0;
+      }
+
+      #user {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      #hamburger {
+        display: block;
+        order: 1;
+      }
+
+      #shopName {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      #user {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopName a {
+        font-size: 26px;
+      }
+      
+      #user {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <section>
+      <div id="container">
+        <!-- Hamburger for Mobile -->
+        <div id="hamburger">&#9776;</div>
+
+        <!-- Logo -->
+        <div id="shopName"><a href="index.html"><b>SNAP</b>CART</a></div>
+
+        <!-- Navigation Links -->
+        <div id="collection">
+          <div><a href="index.html">HOME</a></div>
+          <div><a href="about.html">ABOUT</a></div>
+          <div class="dropdown">
+            <a class="dropbtn">PRODUCTS <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content">
+              <a href="./jewelry.html">Jewellery</a>
+              <a href="./candle.html">Candles</a>
+              <a href="./bags.html">Bags</a>
+              <a href="./perfume.html">Perfume</a>
+            </div>
+          </div>
+          <div><a href="contact.html">CONTACT</a></div>
+          <div id="search">
+            <i class="fas fa-search search"></i>
+            <input type="text" id="input" name="searchBox" placeholder="Search handmade gifts..."/>
+          </div>
+        </div>
+
+        <!-- User Icons -->
+        <div id="user">
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <div id="badge">0</div>
+          </a>
+          <a href="#"><i class="fas fa-user-circle"></i></a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const collection = document.getElementById("collection");
+
+    hamburger.addEventListener("click", () => {
+      collection.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown') && !event.target.matches('#hamburger')) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        dropdowns.forEach(dropdown => {
+          dropdown.style.display = 'none';
+        });
+        
+        if (window.innerWidth <= 768) {
+          collection.classList.remove("show");
+        }
+      }
+    });
+
+    // Universal cart functions
+    function getCartItems() {
+      return JSON.parse(localStorage.getItem('cartItems')) || [];
+    }
+
+    function updateCartCount() {
+      const cartItems = getCartItems();
+      const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+      const badgeElements = document.querySelectorAll('#badge');
+      
+      badgeElements.forEach(badge => {
+        if (badge) badge.textContent = totalItems;
+      });
+    }
+
+    // Initialize cart badge
+    updateCartCount();
+
+    // Listen for cart updates from other tabs/windows
+    window.addEventListener('storage', function(event) {
+      if (event.key === 'cartItems') {
+        updateCartCount();
+      }
+    });
+
+    // Make functions available globally
+    window.addToCart = function(product) {
+      let cartItems = getCartItems();
+      const existingItem = cartItems.find(item => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+      } else {
+        product.quantity = 1;
+        cartItems.push(product);
+      }
+      
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      updateCartCount();
+      
+      // Show notification
+      showNotification(`${product.name} added to cart!`);
+    };
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

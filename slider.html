@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>SLIDER | E-COMMERCE WEBSITE</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16"/>
+
+  <!-- EXTERNAL LINKS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffefc;
+    }
+
+    #containerSlider {
+      margin: auto;
+      width: 90%;
+      max-width: 1200px;
+      padding-top: 100px;
+      box-sizing: border-box;
+    }
+
+    #containerSlider img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      #containerSlider img {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #containerSlider img {
+        height: 200px;
+      }
+    }
+
+    /* Slick dots customization (optional) */
+    .slick-dots li button:before {
+      font-size: 10px;
+      color: #d08f66;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: #a86c4b;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="containerSlider">
+      <div><img src="https://www.gosupps.com/media/catalog/product/cache/25/image/1500x/040ec09b1e35df139433887a97daa66f/7/1/717TyvcVbuL._AC_SL1500__2.jpg" alt="Scented Candle"></div>
+      <div><img src="https://cateandchloe.com/cdn/shop/articles/pop_2211.png?v=1721735904" alt="Handmade Item"></div>
+      <div><img src="https://thelyanashop.com/cdn/shop/files/Web_Banner_5.jpg?v=1744358264&width=3840" alt="Decor Banner"></div>
+      <div><img src="https://eightandbob.com/cdn/shop/files/banner_fouquetcollection2.webp?v=1747990616&width=1920" alt="Cosmetic Bottle"></div>
+    </div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#containerSlider').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+        pauseOnHover: false
+      });
+    });
+  </script>
+</body>
+</html>
