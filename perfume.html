@@ -1011,6 +1011,88 @@
       updateCartBadge();
       createPerfumeCards();
     });
+    
+
+        <!-- // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const collection = document.getElementById("collection");
+
+    hamburger.addEventListener("click", () => {
+      collection.classList.toggle("show");
+    }); -->
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown') && !event.target.matches('#hamburger')) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        dropdowns.forEach(dropdown => {
+          dropdown.style.display = 'none';
+        });
+        
+        if (window.innerWidth <= 768) {
+          collection.classList.remove("show");
+        }
+      }
+    });
+
+    // Universal cart functions
+    function getCartItems() {
+      return JSON.parse(localStorage.getItem('cartItems')) || [];
+    }
+
+    function updateCartCount() {
+      const cartItems = getCartItems();
+      const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+      const badgeElements = document.querySelectorAll('#badge');
+      
+      badgeElements.forEach(badge => {
+        if (badge) badge.textContent = totalItems;
+      });
+    }
+
+    // Initialize cart badge
+    updateCartCount();
+
+    // Listen for cart updates from other tabs/windows
+    window.addEventListener('storage', function(event) {
+      if (event.key === 'cartItems') {
+        updateCartCount();
+      }
+    });
+
+    // Make functions available globally
+    window.addToCart = function(product) {
+      let cartItems = getCartItems();
+      const existingItem = cartItems.find(item => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+      } else {
+        product.quantity = 1;
+        cartItems.push(product);
+      }
+      
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      updateCartCount();
+      
+      // Show notification
+      showNotification(`${product.name} added to cart!`);
+    };
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }, 3000);
+    }
+
   </script>
   
 </body>
